@@ -136,7 +136,32 @@
 	}
 	}
 	
-	//
+	// delete node from the tree
+	removeData(val){
+	this.root=this.deletenode(this.root,val)
+	}
+	
+	deletenode(root,val){
+	if(root ===null){return};
+	if(val < root.value){
+	root.left =this.deletenode(root.left,val)
+	}else if(val > root.value){
+	  root.right =this.deletenode(root.right,val)
+	}else{
+	  if(!root.left && !root.right){
+	    return null
+	  }else if(!root.left){
+	  return root.right
+	  }else if(!root.right){
+	  return root.left
+	  }
+	  root.value=this.findBstMinValue(root.right)
+	  root.right=this.deletenode(root.right,root.value)
+	}
+	return root
+	
+	
+	}
 	
   }
  let bst=new  Bstree()
@@ -144,13 +169,13 @@
  bst.makeTree(10)
  bst.makeTree(5)
  bst.makeTree(11)
-//  <!-- bst.makeTree(15) -->
  bst.makeTree(30)
  bst.makeTree(40)
  bst.makeTree(23)
  
  
  //BST Searching
+ bst.removeData(5)
  console.log(bst.bstSearch(bst.root,5))
  
  //traversing  DFS
@@ -165,8 +190,9 @@
 //console.log(bst.findBstMinValue(bst.root))
 
  //find Max value
-console.log(bst.findBstMaxValue(bst.root))
+//console.log(bst.findBstMaxValue(bst.root))
 
 
- 
+ console.log(bst.bfsTraversing(bst.root))
  console.warn(bst)
+
