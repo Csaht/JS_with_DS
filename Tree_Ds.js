@@ -175,8 +175,7 @@
  
  
  //BST Searching
- bst.removeData(5)
- console.log(bst.bstSearch(bst.root,5))
+console.log(bst.bstSearch(bst.root,5))
  
  //traversing  DFS
  //bst.preOrder(bst.root)
@@ -192,7 +191,7 @@
  //find Max value
 //console.log(bst.findBstMaxValue(bst.root))
 
-
+ bst.removeData(5)
  console.log(bst.bfsTraversing(bst.root))
  console.warn(bst)
 
